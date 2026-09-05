@@ -1,0 +1,33 @@
+<?php
+/**
+ * Database Core Engine Connection Management Class
+ * Implements PDO API utilizing prepared statements for data injection protection.
+ */
+class Database {
+    private $host = "localhost";
+    private $db_name = "school_management_db";
+    private $username = "root";
+    private $password = "YOUR_DATABASE_PASSWORD_HERE";
+    public $conn;
+
+    /**
+     * Instantiates connection to data server.
+     * @return PDO|null Returns active connection link or null upon structural failure.
+     */
+    public function getConnection() {
+        $this->conn = null;
+        try {
+            $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8mb4";
+            $options = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+            ];
+            $this->conn = new PDO($dsn, $this->username, $this->password, $options);
+        } catch(PDOException $exception) {
+            error_log("Database connection failure: " . $exception->getMessage());
+            die("System Connection Fault. Please contact your infrastructure technician.");
+        }
+        return $this->conn;
+    }
+}

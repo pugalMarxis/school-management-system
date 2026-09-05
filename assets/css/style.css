@@ -1,0 +1,175 @@
+/**
+ * EduManage Global Dashboard UI Stylesheet Overrides
+ * Design System: Modern Corporate Academic (Navy, Slate, Soft Light Neutrals)
+ */
+
+/* Variable Declaration Scope */
+:root {
+    --primary-navy: #1e3a8a;
+    --primary-navy-dark: #172554;
+    --accent-blue: #3b82f6;
+    --dark-slate: #0f172a;
+    --dark-slate-light: #1e293b;
+    --bg-light: #f8fafc;
+    --border-color: #e2e8f0;
+    --text-muted: #64748b;
+    --sidebar-width: 260px;
+    --transition-speed: 0.3s;
+}
+
+/* Core Document Resets & Typography Refinements */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--dark-slate);
+    letter-spacing: -0.01em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Application Layout Scaffolding */
+#wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Responsive Sidebar Navigation Engine */
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+    background-color: var(--dark-slate);
+    transition: margin-left var(--transition-speed) ease-in-out, width var(--transition-speed) ease-in-out;
+    flex-shrink: 0;
+    z-index: 1000;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 1.5rem 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-color: var(--dark-slate-light);
+    color: #ffffff;
+    letter-spacing: 0.05em;
+}
+
+#sidebar-wrapper .list-group-item {
+    color: #94a3b8;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#sidebar-wrapper .list-group-item i {
+    width: 24px;
+    font-size: 1.1rem;
+}
+
+#sidebar-wrapper .list-group-item:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+#sidebar-wrapper .list-group-item.active {
+    color: #ffffff;
+    background-color: var(--primary-navy) !important;
+    border-left: 4px solid var(--accent-blue);
+    padding-left: calc(1.5rem - 4px);
+}
+
+/* Main Content Wrapper */
+#page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+/* Top Navigation Ribbon Modifications */
+.top-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+}
+
+/* Responsive Menu Toggle Class (Triggered via JS) */
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: calc(-1 * var(--sidebar-width));
+}
+
+/* Premium Dashboard Metric Cards */
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card.shadow-sm {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Form Styling & Validation States */
+.form-control, .form-select {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    outline: 0;
+}
+
+/* Data Table Presentation Polish */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    background-color: #f8fafc;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+
+.table tbody td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--dark-slate);
+    font-size: 0.95rem;
+}
+
+/* Custom Alert Enhancements */
+.alert {
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+}
+
+/* Responsive Media Queries breakpoint optimizations */
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: calc(-1 * var(--sidebar-width));
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
+}
