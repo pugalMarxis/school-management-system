@@ -28,5 +28,5 @@ EduManage is a lightweight, modular School Management System designed to streaml
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-   cd YOUR_REPO_NAME
+   git clone [https://github.com/pugalMarxis/school-management-system.git](https://github.com/pugalMarxis/school-management-system.git)
+   cd pugalMarxis
